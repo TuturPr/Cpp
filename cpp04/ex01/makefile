@@ -6,7 +6,7 @@
 #    By: aperceva <aperceva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 17:23:35 by arthur            #+#    #+#              #
-#    Updated: 2025/06/24 18:07:10 by aperceva         ###   ########.fr        #
+#    Updated: 2025/06/24 18:25:33 by aperceva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC = main.cpp \
 	  Animal.cpp \
 	  WrongAnimal.cpp \
 	  WrongCat.cpp \
+	  Brain.cpp \
 
 OBJS = $(SRC:.cpp=.o)
 
