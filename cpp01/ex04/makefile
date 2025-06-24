@@ -6,13 +6,13 @@
 #    By: aperceva <aperceva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 17:23:35 by arthur            #+#    #+#              #
-#    Updated: 2025/06/21 17:23:41 by aperceva         ###   ########.fr        #
+#    Updated: 2025/06/24 12:56:29 by aperceva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME = brainz
+NAME = replace
 
 CC = c++
 
@@ -20,10 +20,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 # Sources
 
-SRC = main.cpp \
-	  Weapon.cpp \
-	  HumanA.cpp \
-	  HumanB.cpp
+SRC = main.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
