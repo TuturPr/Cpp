@@ -6,7 +6,7 @@
 #    By: aperceva <aperceva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 17:23:35 by arthur            #+#    #+#              #
-#    Updated: 2025/06/24 13:02:03 by aperceva         ###   ########.fr        #
+#    Updated: 2025/06/24 13:41:53 by aperceva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 # Sources
 
-SRC = main.cpp
+SRC = main.cpp \
+	  Harl.cpp \
 
 OBJS = $(SRC:.cpp=.o)
 

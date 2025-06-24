@@ -6,7 +6,7 @@
 /*   By: aperceva <aperceva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 13:10:25 by aperceva          #+#    #+#             */
-/*   Updated: 2025/06/24 13:13:00 by aperceva         ###   ########.fr       */
+/*   Updated: 2025/06/24 13:40:24 by aperceva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 class Harl
 {
-	public:
+	public	:
 		Harl();
 		~Harl();
 		void complain(const std::string &level);
-	private:
-		void debug();
-		void info();
-		void warning();
-		void error();
+
+	private	:
+
+		void debug() const;
+		void info() const;
+		void warning() const;
+		void error() const;
 };
