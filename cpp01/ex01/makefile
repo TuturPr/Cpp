@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperceva <aperceva@student.42.fr>          +#+  +:+       +#+         #
+#    By: ariou <ariou@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 17:23:35 by arthur            #+#    #+#              #
-#    Updated: 2025/06/21 16:46:00 by aperceva         ###   ########.fr        #
+#    Updated: 2025/09/22 12:35:07 by ariou            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME = brainz
+NAME = horde
 
 CC = c++
 

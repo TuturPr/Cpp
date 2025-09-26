@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperceva <aperceva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ariou <ariou@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 16:44:17 by aperceva          #+#    #+#             */
-/*   Updated: 2025/06/24 12:55:04 by aperceva         ###   ########.fr       */
+/*   Updated: 2025/09/22 15:38:44 by ariou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,16 @@ int main(int argc, char ** argv)
 	std::string		s2;
 	std::string		buff;
 	std::string		file;
+	std::string		afile;
 	std::string		fileReplace;
 
 	if (argc != 4)
 		return (1);
-
+	if (argv[2][0] == '\0' || argv[3][0] == '\0')
+	{
+		std::cerr << "Error: s1 and s2 must be non-empty strings" << std::endl;
+		return (1);
+	}
 	s1 = argv[2];
 	s2 = argv[3];
 
@@ -62,7 +67,8 @@ int main(int argc, char ** argv)
 		}
 	}
 	while (std::getline(fileIn, buff))
-		replaceStrings(fileOut, s1, s2, buff);
+		afile += buff + "\n";
+	replaceStrings(fileOut, s1, s2, afile);
 	fileIn.close();
 	fileOut.close();
 	return (0);

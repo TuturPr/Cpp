@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperceva <aperceva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ariou <ariou@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 14:20:26 by aperceva          #+#    #+#             */
-/*   Updated: 2025/06/16 16:28:52 by aperceva         ###   ########.fr       */
+/*   Updated: 2025/09/22 12:32:40 by ariou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Zombie::Zombie(std::string name) : name(name)
 
 Zombie::~Zombie()
 {
+	std::cout << this->name << " destroyed" << std::endl;
 }
 
 void Zombie::announce() const

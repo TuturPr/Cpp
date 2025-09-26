@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperceva <aperceva@student.42.fr>          +#+  +:+       +#+         #
+#    By: ariou <ariou@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 17:23:35 by arthur            #+#    #+#              #
-#    Updated: 2025/06/21 17:39:26 by aperceva         ###   ########.fr        #
+#    Updated: 2025/09/22 11:58:37 by ariou            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 # Sources
 
-SRC = main.cpp
+SRC = main.cpp\
+	  HumanA.cpp\
+	  HumanB.cpp\
+	  Weapon.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
