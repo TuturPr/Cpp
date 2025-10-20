@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariou <ariou@student.42.fr>                +#+  +:+       +#+        */
+/*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:09:18 by ariou             #+#    #+#             */
-/*   Updated: 2025/09/26 17:21:46 by ariou            ###   ########.fr       */
+/*   Updated: 2025/10/20 10:57:50 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,3 +103,14 @@ std::ostream &operator<<(std::ostream &o, const Bureaucrat &Bureaucrat)
 	return o;
 }
 
+void Bureaucrat::signForm(Form &form) const
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << this->name << " couldn't sign form " << form.getName() << " because " << e.what() << std::endl;
+	}
+}

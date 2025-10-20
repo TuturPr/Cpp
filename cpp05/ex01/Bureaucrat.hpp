@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariou <ariou@student.42.fr>                +#+  +:+       +#+        */
+/*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:09:10 by ariou             #+#    #+#             */
-/*   Updated: 2025/09/26 17:21:41 by ariou            ###   ########.fr       */
+/*   Updated: 2025/10/20 11:00:28 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -28,6 +31,7 @@ class Bureaucrat
 		int getGrade() const;
 		void promote();
 		void demote();
+		void signForm(Form &form) const;
 
 		class GradeTooHighException : public std::exception
 		{
