@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:08:53 by ariou             #+#    #+#             */
-/*   Updated: 2025/10/21 02:22:08 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/21 13:20:11 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int main()
 	delete shrub;
 	delete robo;
 	delete pardon;
-	delete unknown; // NULL safe à delete en C++98/11 ?
+	delete unknown;
 
 	return 0;
 }

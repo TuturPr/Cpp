@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 02:11:03 by arthur            #+#    #+#             */
-/*   Updated: 2025/10/21 02:41:40 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/21 13:36:10 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,12 @@ Intern::~Intern()
 AForm* Intern::createForm(const std::string& formType, const std::string& target)
 {
 	int i = 0;
-	
-std::string formNames[3] = {
-    "ShrubberyCreationForm",
-    "RobotomyRequestForm",
-    "PresidentialPardonForm"
-};
 
+	std::string formNames[3] = {
+		"ShrubberyCreationForm",
+		"RobotomyRequestForm",
+		"PresidentialPardonForm"
+	};
 
 	while (i < 3 && formType != formNames[i])
 		i++;
