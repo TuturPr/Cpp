@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperceva <aperceva@student.42.fr>          +#+  +:+       +#+         #
+#    By: arthur <arthur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 17:23:35 by arthur            #+#    #+#              #
-#    Updated: 2025/06/21 16:35:50 by aperceva         ###   ########.fr        #
+#    Updated: 2025/10/21 02:07:54 by arthur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME = brainz
+NAME = bureaucrat
 
 CC = c++
 
@@ -21,9 +21,11 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 # Sources
 
 SRC = main.cpp \
-	  newZombie.cpp \
-	  randomChump.cpp \
-	  Zombie.cpp
+	  Bureaucrat.cpp \
+	  AForm.cpp \
+	  ShrubberyCreationForm.cpp \
+	  RobotomyRequestForm.cpp \
+	  PresidentialPardonForm.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
