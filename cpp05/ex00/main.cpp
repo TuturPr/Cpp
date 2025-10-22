@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:08:53 by ariou             #+#    #+#             */
-/*   Updated: 2025/10/22 09:55:23 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/22 15:44:08 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,26 @@
 
 int main()
 {
-	Bureaucrat testoiuille("Frederic", -8);
-	Bureaucrat testitouille("Fredo", 1);
-	Bureaucrat testiuille("Fredouille", 149);
-	Bureaucrat test("Frederiste", 12);
+	try
+	{
+		Bureaucrat testoiuille("Frederic", -8);
+		testoiuille.promote();
+		std::cout << testoiuille << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		Bureaucrat teuille("Fred", 18);
+		teuille.demote();
+		std::cout << teuille << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
-	testitouille.promote();
-	testiuille.demote();
-	std::cout << testiuille << std::endl;
-	testiuille.demote();
-	std::cout << testiuille << std::endl;
-	std::cout << testitouille << std::endl;
-	std::cout << test << std::endl;
 	return(0);
 }

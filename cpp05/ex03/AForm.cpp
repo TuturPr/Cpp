@@ -18,17 +18,10 @@ AForm::AForm() : name("undefined"), is_signed(false), sign_grade(150), exec_grad
 
 AForm::AForm(const std::string name, int sign_grade, int exec_grade) : name(name), is_signed(false), sign_grade(sign_grade), exec_grade(exec_grade)
 {
-	try
-	{
-		if (sign_grade < 1 || exec_grade < 1)
-			throw AForm::GradeTooHighException();
-		if (sign_grade > 150 || exec_grade > 150)
-			throw AForm::GradeTooLowException();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (sign_grade < 1 || exec_grade < 1)
+		throw AForm::GradeTooHighException();
+	if (sign_grade > 150 || exec_grade > 150)
+		throw AForm::GradeTooLowException();
 }
 
 AForm::AForm(const AForm &other) : name(other.name), is_signed(other.is_signed), sign_grade(other.sign_grade), exec_grade(other.exec_grade)

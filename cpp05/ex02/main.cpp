@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:08:53 by ariou             #+#    #+#             */
-/*   Updated: 2025/10/22 09:54:53 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/22 16:22:17 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,63 @@ int main()
 {
 	std::srand(std::time(0));
 
-	Bureaucrat high("Fredo", 1);
-	Bureaucrat low("Fredouille", 149);
-	Bureaucrat mid("Frederiste", 12);
+	try
+	{
+		Bureaucrat bob("Bob", 1);
+		ShrubberyCreationForm shrubForm("Home");
+		RobotomyRequestForm roboForm("Marvin");
+		PresidentialPardonForm presForm("Arthur");
 
-	ShrubberyCreationForm shrub("home");
-	RobotomyRequestForm robo("Bender");
-	PresidentialPardonForm pardon("Zaphod");
+		bob.signForm(shrubForm);
+		bob.executeForm(shrubForm);
 
-	std::cout << "\n=== Promotions et rétrogradations ===" << std::endl;
-	high.promote();     // bad
-	low.demote();       // good
-	low.demote();       // bad
+		bob.signForm(roboForm);
+		bob.executeForm(roboForm);
 
-	std::cout << "\n=== Signatures ===" << std::endl;
-	low.signForm(shrub);      // bad
-	high.signForm(shrub);     // good
-	low.signForm(robo);       // bad
-	high.signForm(robo);      // good
-	high.signForm(pardon);    // good
+		bob.signForm(presForm);
+		bob.executeForm(presForm);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
-	std::cout << "\n=== Exécutions ===" << std::endl;
-	low.executeForm(shrub);   // bad
-	high.executeForm(shrub);  // good
-	high.executeForm(robo);   // good
-	high.executeForm(pardon); // good
+	try
+	{
+		Bureaucrat tooLowBob("Bob2", 150);
+		ShrubberyCreationForm shrubForm("Home");
+		RobotomyRequestForm roboForm("Marvin");
+		PresidentialPardonForm presForm("Arthur");
+		tooLowBob.signForm(shrubForm);
+		tooLowBob.executeForm(shrubForm);
+		tooLowBob.signForm(roboForm);
+		tooLowBob.executeForm(roboForm);
+		tooLowBob.signForm(presForm);
+		tooLowBob.executeForm(presForm);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
-	std::cout << "\n=== État final des bureaucrates ===" << std::endl;
-	std::cout << high << std::endl;
-	std::cout << mid  << std::endl;
-	std::cout << low  << std::endl;
+	try
+	{
+		Bureaucrat outofrangeBob("Bob3", 200);
+		ShrubberyCreationForm shrubForm("Home");
+		RobotomyRequestForm roboForm("Marvin");
+		PresidentialPardonForm presForm("Arthur");
+		outofrangeBob.signForm(shrubForm);
+		outofrangeBob.executeForm(shrubForm);
+		outofrangeBob.signForm(roboForm);
+		outofrangeBob.executeForm(roboForm);
+		outofrangeBob.signForm(presForm);
+		outofrangeBob.executeForm(presForm);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 
 	return 0;
 }

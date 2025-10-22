@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 17:53:46 by ariou             #+#    #+#             */
-/*   Updated: 2025/10/20 10:57:08 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/22 15:46:13 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,10 @@ Form::Form() : name("undefined"), is_signed(false), sign_grade(150), exec_grade(
 
 Form::Form(const std::string name, int sign_grade, int exec_grade) : name(name), is_signed(false), sign_grade(sign_grade), exec_grade(exec_grade)
 {
-	try
-	{
-		if (sign_grade < 1 || exec_grade < 1)
-			throw Form::GradeTooHighException();
-		if (sign_grade > 150 || exec_grade > 150)
-			throw Form::GradeTooLowException();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (sign_grade < 1 || exec_grade < 1)
+		throw Form::GradeTooHighException();
+	if (sign_grade > 150 || exec_grade > 150)
+		throw Form::GradeTooLowException();
 }
 
 Form::Form(const Form &other) : name(other.name), is_signed(other.is_signed), sign_grade(other.sign_grade), exec_grade(other.exec_grade)

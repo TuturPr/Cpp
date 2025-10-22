@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:08:53 by ariou             #+#    #+#             */
-/*   Updated: 2025/10/22 09:52:59 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/22 16:24:01 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,45 +24,22 @@ int main()
 {
 	std::srand(std::time(0));
 
-	// Création des bureaucrates
-	Bureaucrat high("Fredo", 1);
-	Bureaucrat mid("Frederiste", 12);
-	Bureaucrat low("Fredouille", 149);
-	Bureaucrat internB("Intern", 150);
+	try
+	{
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
+		Bureaucrat bob("Bob", 1);
 
-	Intern intern;
+		bob.signForm(*rrf);
+		bob.executeForm(*rrf);
+		delete rrf;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
-	std::cout << "\n=== Intern crée les formulaires ===" << std::endl;
-	AForm* shrub = intern.makeForm("ShrubberyCreationForm", "home");
-	AForm* robo  = intern.makeForm("RobotomyRequestForm", "Bender");
-	AForm* pardon= intern.makeForm("PresidentialPardonForm", "Zaphod");
-	AForm* unknown = intern.makeForm("UnknownForm", "Nobody"); // non existant
-
-	std::cout << "\n=== Signatures ===" << std::endl;
-	internB.signForm(*shrub);  // bad
-	low.signForm(*shrub);      // bad
-	high.signForm(*shrub);     // good
-	high.signForm(*robo);      // good
-	high.signForm(*pardon);    // good
-
-	std::cout << "\n=== Exécutions ===" << std::endl;
-	internB.executeForm(*shrub); // bad
-	low.executeForm(*shrub);     // bad
-	high.executeForm(*shrub);    // good
-	high.executeForm(*robo);     // good
-	high.executeForm(*pardon);   // good
-
-	std::cout << "\n=== État final des bureaucrates ===" << std::endl;
-	std::cout << high << std::endl;
-	std::cout << mid  << std::endl;
-	std::cout << low  << std::endl;
-	std::cout << internB << std::endl;
-
-	delete shrub;
-	delete robo;
-	delete pardon;
-	delete unknown;
-
-	return 0;
+	return(0);
 }
 

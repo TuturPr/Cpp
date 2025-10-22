@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 02:11:03 by arthur            #+#    #+#             */
-/*   Updated: 2025/10/22 09:53:29 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/22 12:57:08 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ AForm* Intern::makeForm(const std::string& formType, const std::string& target)
 		"RobotomyRequestForm",
 		"PresidentialPardonForm"
 	};
+	
 
 	while (i < 3 && formType != formNames[i])
 		i++;
