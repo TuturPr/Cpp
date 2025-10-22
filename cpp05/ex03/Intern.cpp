@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 02:11:03 by arthur            #+#    #+#             */
-/*   Updated: 2025/10/21 13:36:10 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/22 09:53:29 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Intern& Intern::operator=(const Intern& other)
 Intern::~Intern()
 {
 }
-AForm* Intern::createForm(const std::string& formType, const std::string& target)
+AForm* Intern::makeForm(const std::string& formType, const std::string& target)
 {
 	int i = 0;
 
@@ -56,7 +56,7 @@ AForm* Intern::createForm(const std::string& formType, const std::string& target
 		case 2:
 			return new PresidentialPardonForm(target);
 		default:
-			std::cout << "Intern cannot create form: Unknown form type '" << formType << "'" << std::endl;
+			std::cerr << "Intern cannot create form: Unknown form type '" << formType << "'" << std::endl;
 			return NULL;
 	}
 }

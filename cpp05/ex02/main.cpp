@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:08:53 by ariou             #+#    #+#             */
-/*   Updated: 2025/10/21 02:09:35 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/22 09:54:53 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,22 @@ int main()
 	PresidentialPardonForm pardon("Zaphod");
 
 	std::cout << "\n=== Promotions et rétrogradations ===" << std::endl;
-	high.promote();     // devrait afficher une erreur gérée
-	low.demote();       // ok
-	low.demote();       // devrait afficher une erreur gérée
+	high.promote();     // bad
+	low.demote();       // good
+	low.demote();       // bad
 
 	std::cout << "\n=== Signatures ===" << std::endl;
-	low.signForm(shrub);      // trop bas, affichera message
-	high.signForm(shrub);     // succès
-	low.signForm(robo);       // trop bas
-	high.signForm(robo);      // succès
-	high.signForm(pardon);    // succès
+	low.signForm(shrub);      // bad
+	high.signForm(shrub);     // good
+	low.signForm(robo);       // bad
+	high.signForm(robo);      // good
+	high.signForm(pardon);    // good
 
 	std::cout << "\n=== Exécutions ===" << std::endl;
-	low.executeForm(shrub);   // trop bas
-	high.executeForm(shrub);  // succès
-	high.executeForm(robo);   // succès aléatoire
-	high.executeForm(pardon); // succès
+	low.executeForm(shrub);   // bad
+	high.executeForm(shrub);  // good
+	high.executeForm(robo);   // good
+	high.executeForm(pardon); // good
 
 	std::cout << "\n=== État final des bureaucrates ===" << std::endl;
 	std::cout << high << std::endl;

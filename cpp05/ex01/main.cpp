@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:08:53 by ariou             #+#    #+#             */
-/*   Updated: 2025/10/20 11:09:09 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/22 09:55:16 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int main()
 	Form formA("FormA", 2, 10);
 	Form formB("FormB", 150, 150);
 
-	//Bureaucrat E;
 
 	testitouille.promote();
 	testiuille.demote();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariou <ariou@student.42.fr>                +#+  +:+       +#+        */
+/*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 12:08:53 by ariou             #+#    #+#             */
-/*   Updated: 2025/09/26 17:52:56 by ariou            ###   ########.fr       */
+/*   Updated: 2025/10/22 09:55:23 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int main()
 	Bureaucrat testitouille("Fredo", 1);
 	Bureaucrat testiuille("Fredouille", 149);
 	Bureaucrat test("Frederiste", 12);
-	//Bureaucrat E;
 
 	testitouille.promote();
 	testiuille.demote();
