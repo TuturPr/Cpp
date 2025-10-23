@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 13:25:11 by arthur            #+#    #+#             */
-/*   Updated: 2025/10/21 18:52:16 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/23 15:27:31 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,21 @@
 #include <sstream>
 #include <limits>
 #include <cmath>
+#include <climits>
 #include <iomanip>
 #include <cfloat>
+
+ScalarConverter::ScalarConverter() {}
+
+ScalarConverter::ScalarConverter(const ScalarConverter& other) { (void)other; }
+
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
+{
+	(void)other;
+	return *this;
+}
+
+ScalarConverter::~ScalarConverter() {}
 
 static void convertChar(const std::string& literal)
 {
@@ -28,8 +41,15 @@ static void convertChar(const std::string& literal)
 
 static void convertInt(const std::string& literal)
 {
-	int number = atoi(literal.c_str());
 
+	long getter = atol(literal.c_str());
+	if (getter > INT_MAX || getter < INT_MIN)
+	{
+		std::cout << "Error: Integer overflow" << '\n';
+		return ;
+	}
+	int number = static_cast<int>(getter);
+	std::cout << number << '\n';
 	if (number < 0 || number > 127)
 		std::cout << "char: Impossible" << '\n';
 	else if (number < 32 || number == 127)
@@ -43,7 +63,7 @@ static void convertInt(const std::string& literal)
 
 static void convertFloat(const std::string& literal)
 {
-	float number = atof(literal.c_str());
+	float number = strtof(literal.c_str(), NULL);
 
 	if (number < 0 || number > 127)
 		std::cout << "char: Impossible" << '\n';
@@ -58,7 +78,7 @@ static void convertFloat(const std::string& literal)
 
 static void convertDouble(const std::string& literal)
 {
-	double number = atof(literal.c_str());
+	double number = strtod(literal.c_str(), NULL);
 
 	if (number < 0 || number > 127)
 		std::cout << "char: Impossible" << '\n';
@@ -94,55 +114,61 @@ static void convertSpecial(const std::string& literal)
 
 static void convertError()
 {
-	std::cout << "char : Impossible" << '\n';
-	std::cout << "int : Impossible" << '\n';
-	std::cout << "float : Impossible" << '\n';
-	std::cout << "double : Impossible" << '\n';
+	std::cout << "Error: Invalid literal" << '\n';
 }
 
 void ScalarConverter::convert(const std::string& literal)
 {
-	if (std::isprint(literal[0]) && !isdigit(literal[0]))
-		if (literal.length() == 1)
-			convertChar(literal);
-		else if (literal == "nan" || literal == "nanf" ||
-				 literal == "+inf" || literal == "+inff" ||
-				 literal == "-inf" || literal == "-inff")
+	try
+	{
+		if (literal == "nan" || literal == "nanf" ||
+			literal == "+inf" || literal == "+inff" ||
+			literal == "-inf" || literal == "-inff")
+		{
 			convertSpecial(literal);
+		}
+		else if (literal.length() == 1 && std::isprint(literal[0]) && !isdigit(literal[0]))
+		{
+			convertChar(literal);
+		}
+		else if (literal[literal.length() - 1] == 'f')
+		{
+			size_t i = (literal[0] == '+' || literal[0] == '-') ? 1 : 0;
+			while (i < literal.length() - 1 && (isdigit(literal[i]) || literal[i] == '.'))
+				i++;
+			if (i == literal.length() - 1)
+				convertFloat(literal);
+			else
+				convertError();
+		}
+		else if (literal.find('.') != std::string::npos)
+		{
+			size_t i = (literal[0] == '+' || literal[0] == '-') ? 1 : 0;
+			while (i < literal.length() && (isdigit(literal[i]) || literal[i] == '.'))
+				i++;
+			if (i == literal.length())
+				convertDouble(literal);
+			else
+				convertError();
+		}
+		else if (isdigit(literal[0]) || ((literal[0] == '+' || literal[0] == '-') && isdigit(literal[1])))
+		{
+			size_t i = (literal[0] == '+' || literal[0] == '-') ? 1 : 0;
+			while (i < literal.length() && isdigit(literal[i]))
+				i++;
+			if (i == literal.length())
+				convertInt(literal);
+			else
+				convertError();
+		}
 		else
+		{
 			convertError();
-	else if (literal.length() - 1 == 'f')
-	{
-		size_t i = 0;
-		while (i < literal.length() - 1 && (isdigit(literal[i]) || literal[i] == '.'))
-			i++;
-		if (i == literal.length() - 1)
-			convertFloat(literal);
-		else
-			convertError();
+		}
+
 	}
-	else if (literal.find('.') != std::string::npos)
+	catch(const std::exception& e)
 	{
-		size_t i = 0;
-		while (isdigit(literal[i]) || literal[i] == '.')
-			i++;
-		if (i == literal.length() - 1)
-			convertDouble(literal);
-		else
-			convertError();
+		std::cerr << e.what() << '\n';
 	}
-	else if (isdigit(literal[0]) || ((literal[0] == '+' || literal[0] == '-') && isdigit(literal[1])))
-	{
-		size_t i = 0;
-		if (literal[0] == '+' || literal[0] == '-')
-			i++;
-		while (i < literal.length() && isdigit(literal[i]))
-			i++;
-		if (i == literal.length())
-			convertInt(literal);
-		else
-			convertError();
-	}
-	else
-		convertError();
 }
