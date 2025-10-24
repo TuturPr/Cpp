@@ -6,19 +6,14 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 21:42:22 by arthur            #+#    #+#             */
-/*   Updated: 2025/10/22 21:46:47 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/24 14:36:24 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
 
 int main()
 {
-	std::srand(std::time(0));
-
 	Span sp = Span(10000);
 	sp.fillRandomNumbers(10000);
 

@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 21:05:50 by arthur            #+#    #+#             */
-/*   Updated: 2025/10/22 21:42:14 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/24 14:38:10 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,12 @@ void Span::addNumber(int number)
 
 void Span::fillRandomNumbers(unsigned int n)
 {
+	std::srand(std::time(0));
 	if (n + this->_numbers.size() > this->_maxSize)
 		throw std::runtime_error("not enough space to add numbers");
 	for (unsigned int i = 0; i < n; i++)
 	{
-		int number = rand() % 10000;
+		int number = rand() % 90000000;
 		this->_numbers.push_back(number);
 	}
 }

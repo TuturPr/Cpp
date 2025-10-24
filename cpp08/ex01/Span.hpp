@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 21:03:38 by arthur            #+#    #+#             */
-/*   Updated: 2025/10/22 21:40:12 by arthur           ###   ########.fr       */
+/*   Updated: 2025/10/24 14:33:09 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <algorithm>
 #include <stdexcept>
 #include <numeric>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 class Span
 {
